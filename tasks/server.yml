@@ -48,6 +48,7 @@
 - name: reload systemd daemon
   systemd:
     daemon_reload: true
+    name: "{{ redis_service_name }}"
   when:
     - redis_as_service
     - ansible_service_mgr|default() == "systemd"
